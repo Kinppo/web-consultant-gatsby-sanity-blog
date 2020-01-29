@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Layout from "../templates/DefaultLayout";
 import Image from "gatsby-image";
 import { graphql } from "gatsby";
+import Seo from "../components/seo";
+
 const Container = styled.div`
   .mh-about {
     height: 100%;
@@ -56,6 +58,7 @@ const Container = styled.div`
 function About({ data }) {
   return (
     <Container>
+      <Seo title="blogs" />
       <Layout location="about">
         <section className="mh-about" id="mh-about">
           <div className="container">

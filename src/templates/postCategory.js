@@ -3,6 +3,8 @@ import Layout from "./DefaultLayout";
 import { Link } from "gatsby";
 import BlogCard from "../components/BlogCard";
 import styled from "styled-components";
+import Seo from "../components/seo";
+
 const Container = styled.div`
   width: 100%;
   .blogs {
@@ -27,6 +29,7 @@ const Container = styled.div`
 function PostCategory({ data }) {
   return (
     <Container>
+      <Seo title="blogs" />
       <Layout location="blogs">
         <div className="blogs">
           {data.allSanityPost.edges.map(({ node }) => (

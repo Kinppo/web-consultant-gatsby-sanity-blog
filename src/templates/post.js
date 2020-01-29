@@ -4,6 +4,7 @@ import Layout from "./DefaultLayout";
 import styled from "styled-components";
 import Image from "gatsby-image";
 import BlockContent from "../components/block-content";
+import Seo from "../components/seo";
 const Container = styled.div`
   max-width: 1000px;
   margin: 20em auto;
@@ -34,6 +35,7 @@ const Container = styled.div`
 export default function blog({ data }) {
   return (
     <Layout>
+      <Seo title="blog" />
       <Container>
         <Image
           fluid={data.sanityPost.mainImage.asset.fluid}

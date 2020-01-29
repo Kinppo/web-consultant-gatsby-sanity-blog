@@ -7,6 +7,8 @@ import { Link, graphql } from "gatsby";
 import LatestPosts from "../components/LatestPosts";
 import Aside from "../components/Aside";
 import ImageSection from "../components/ImageSection";
+import Seo from "../components/seo"
+
 const Container = styled.div`
   width: 100%;
   .blogs {
@@ -44,6 +46,7 @@ const Container = styled.div`
 const IndexPage = ({ data }) => {
   return (
     <Container>
+      <Seo title="home"/>
       <Layout location="/">
         <Carousel />
         <LatestPosts />

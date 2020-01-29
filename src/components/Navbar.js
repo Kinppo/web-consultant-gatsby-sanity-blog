@@ -18,6 +18,10 @@ const Container = styled.div`
   ul {
     margin: 0;
     padding: 0;
+  }
+  .nav-row {
+    margin: 0;
+    padding: 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -29,11 +33,6 @@ const Container = styled.div`
     margin-bottom: 10px;
     width: 220px;
     height: 80px;
-  }
-  li {
-    list-style: none;
-    color: #333;
-    font-weight: 700;
   }
   .nav-li {
     display: inline-block;
@@ -70,7 +69,6 @@ const Container = styled.div`
   }
   .droppable:hover .mega-menu {
     display: flex;
-    flex-direction: row;
     transition: all 0.5s;
     transform: translateY(0%);
     opacity: 1;
@@ -85,13 +83,16 @@ const Container = styled.div`
     padding: 5em 5em 3em 5em;
     grid-column-gap: 1em;
   }
+  h6 {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
   .mega-menu-2 {
     justify-content: left;
     padding: 1em 2em 1em 1em;
-    ul {
-      flex-direction: column;
-    }
-    li {
+    flex-direction: column;
+    h6 {
       cursor: pointer;
       margin: 1em 0em;
       width: 100%;
@@ -161,7 +162,7 @@ const Container = styled.div`
     }
   }
   @media only screen and (max-width: 768px) {
-    .second-ul {
+    .second-row {
       display: none;
     }
   }
@@ -182,21 +183,21 @@ function Navbar({ data, location }) {
   return (
     <div>
       <Container>
-        <ul>
+        <div className="nav-row">
           <img
             src={require("../images/logo.png")}
             alt="logo"
             className="logo"
           />
-        </ul>
-        <li
+        </div>
+        <h6
           onClick={() => openSideBar()}
           style={{ position: "absolute", right: "5em", marginTop: "2.8em" }}
         >
           <Hamburger />
-        </li>
-        <ul className="second-ul">
-          <li className="nav-li">
+        </h6>
+        <div className="nav-row second-row">
+          <h6 className="nav-li">
             <p>
               <Link
                 className="link"
@@ -210,8 +211,8 @@ function Navbar({ data, location }) {
                 Home
               </Link>
             </p>
-          </li>
-          <li className="droppable nav-li">
+          </h6>
+          <h6 className="droppable nav-li">
             <p>
               <Link
                 className="link"
@@ -243,8 +244,8 @@ function Navbar({ data, location }) {
                 </Link>
               ))}
             </div>
-          </li>
-          <li className="nav-li">
+          </h6>
+          <h6 className="nav-li">
             <p>
               <Link
                 to="./about"
@@ -258,8 +259,8 @@ function Navbar({ data, location }) {
                 ABOUT
               </Link>
             </p>
-          </li>
-          <li className="nav-li">
+          </h6>
+          <h6 className="nav-li">
             <p>
               <Link
                 to="./contact"
@@ -273,8 +274,8 @@ function Navbar({ data, location }) {
                 Contact
               </Link>
             </p>
-          </li>
-          <li className="droppable nav-li">
+          </h6>
+          <h6 className="droppable nav-li">
             <p>
               <a
                 href=" "
@@ -287,47 +288,45 @@ function Navbar({ data, location }) {
               </a>
             </p>
             <div className="mega-menu mega-menu-2">
-              <ul>
-                <li>
-                  <a
-                    href="https://www.instagram.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.twitter.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.github.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Linkden
-                  </a>
-                </li>
-              </ul>
+              <h6>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
+              </h6>
+              <h6>
+                <a
+                  href="https://www.twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Twitter
+                </a>
+              </h6>
+              <h6>
+                <a
+                  href="https://www.github.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+              </h6>
+              <h6>
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Linkden
+                </a>
+              </h6>
             </div>
-          </li>
-        </ul>
+          </h6>
+        </div>
       </Container>
       <SideBar
         SideBarIsActive={SideBarIsActive}

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Popup from "../components/Popup";
 import styled from "styled-components";
 import Layout from "../templates/DefaultLayout";
+import Seo from "../components/seo";
+
 const Container = styled.div`
   height: 100%;
   min-height: calc(100vh - 121px);
@@ -67,6 +69,7 @@ const Contact = () => {
   };
   return (
     <Layout location="contact">
+      <Seo title="contact" />
       <Container>
         <h3>Feel free to Contact Me</h3>
         <form
