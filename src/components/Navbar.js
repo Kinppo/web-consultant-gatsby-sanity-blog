@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link, graphql, StaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import Hamburger from "./Hamburger";
 import SideBar from "./SideBar";
 
@@ -72,16 +72,6 @@ const Container = styled.div`
     transition: all 0.5s;
     transform: translateY(0%);
     opacity: 1;
-  }
-  .droppable:hover .mega-menu-1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-  .mega-menu-1 {
-    width: 100%;
-    left: 0;
-    padding: 5em 5em 3em 5em;
-    grid-column-gap: 1em;
   }
   h6 {
     font-family: Montserrat, sans-serif;
@@ -161,9 +151,15 @@ const Container = styled.div`
       color: inherit;
     }
   }
+  .hamburger {
+    display: none;
+  }
   @media only screen and (max-width: 768px) {
     .second-row {
       display: none;
+    }
+    .hamburger {
+      display: block;
     }
   }
   @media only screen and (max-width: 900px) {
@@ -175,7 +171,7 @@ const Container = styled.div`
     }
   }
 `;
-function Navbar({ data, location }) {
+export default function Navbar({ data, location }) {
   const [SideBarIsActive, toggleSideBar] = useState(false);
   const openSideBar = () => {
     toggleSideBar(true);
@@ -190,12 +186,13 @@ function Navbar({ data, location }) {
             className="logo"
           />
         </div>
-        <h6
+        <div
+          className="hamburger"
           onClick={() => openSideBar()}
-          style={{ position: "absolute", right: "5em", marginTop: "2.8em" }}
+          style={{ position: "absolute", right: "3em", top: "1em" }}
         >
           <Hamburger />
-        </h6>
+        </div>
         <div className="nav-row second-row">
           <h6 className="nav-li">
             <p>
@@ -212,7 +209,7 @@ function Navbar({ data, location }) {
               </Link>
             </p>
           </h6>
-          <h6 className="droppable nav-li">
+          <h6 className="nav-li">
             <p>
               <Link
                 className="link"
@@ -226,24 +223,6 @@ function Navbar({ data, location }) {
                 Blogs
               </Link>
             </p>
-            <div className="mega-menu mega-menu-1">
-              {data.allSanityPost.edges.map(({ node }) => (
-                <Link
-                  to={node.slug.current}
-                  key={node.title}
-                  className="carousel-card-link"
-                >
-                  <div
-                    className="carousel-card"
-                    style={{
-                      backgroundImage: `url(${node.mainImage.asset.fluid.src})`
-                    }}
-                  >
-                    <h4>{`This is the title of ${node.title}`}</h4>
-                  </div>
-                </Link>
-              ))}
-            </div>
           </h6>
           <h6 className="nav-li">
             <p>
@@ -335,35 +314,3 @@ function Navbar({ data, location }) {
     </div>
   );
 }
-
-export default ({ location }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allSanityPost(limit: 4) {
-          edges {
-            node {
-              title
-              publishedAt
-              description
-              slug {
-                current
-              }
-              mainImage {
-                asset {
-                  fluid {
-                    ...GatsbySanityImageFluid
-                  }
-                }
-              }
-              categories {
-                title
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Navbar data={data} location={location} />}
-  />
-);

@@ -2,15 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import Image from "gatsby-image";
 
-function BlogCard({ img, title, desc, date, width, height }) {
+function BlogCard({ img, title, desc, date, width }) {
   const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: ${width ? width : "290px"};
-    height: ${height ? height : "100%"};
+    height: 400px;
     margin: 0em 1em 0em 1em;
     background: #fcfcfc;
     transition: all 0.8s;
+    max-width: 320px;
     &:hover {
       background: #f4f4f4;
     }

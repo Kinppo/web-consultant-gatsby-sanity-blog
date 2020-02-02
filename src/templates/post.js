@@ -8,6 +8,7 @@ import Seo from "../components/seo";
 const Container = styled.div`
   max-width: 1000px;
   margin: 20em auto;
+  font-family: Poppins, sans-serif;
   img {
     width: 100%;
     height: 560px;

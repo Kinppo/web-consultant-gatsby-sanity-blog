@@ -20,12 +20,12 @@ const Container = styled.div`
   .sidebar-content {
     width: 80%;
     height: 100%;
-    margin: 80px auto;
+    margin: 100px auto;
     font-size: 1.2em;
     letter-spacing: 2px;
   }
   .SideBar-active {
-    width: 350px;
+    width: 100vw;
   }
   a {
     color: #fff;
@@ -35,13 +35,16 @@ const Container = styled.div`
     }
   }
   p {
-    font-weight: 600;
+    font-family: montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
     margin: 20px 0px;
     text-transform: uppercase;
     cursor: pointer;
     width: 100%;
     transition: all 0.6s;
     padding: 15px 15px;
+    text-align: center;
     &:hover {
       a {
         color: #000;
@@ -76,22 +79,26 @@ const SideBar = ({ toggleSideBar, SideBarIsActive }) => {
       <nav className={SideBarIsActive ? `SideBar-active` : ``}>
         <div
           onClick={() => closeSideBar()}
-          style={{ position: "absolute", right: "5em", top: "1em" }}
+          style={{
+            position: "absolute",
+            right: "3em",
+            top: "1em"
+          }}
         >
-          <Hamburger />
+          <Hamburger color="#fff" />
         </div>
         <div className="sidebar-content">
           <Link to="/">
-            <p>Link 1</p>
+            <p>HOME</p>
           </Link>
-          <Link to="/">
-            <p>Link 2</p>
+          <Link to="./blogs">
+            <p>BLOGS</p>
           </Link>
-          <Link to="/">
-            <p>Link 3</p>
+          <Link to="./about">
+            <p>ABOUT</p>
           </Link>
-          <Link to="/">
-            <p>Link 4</p>
+          <Link to="./contact">
+            <p>CONTACT</p>
           </Link>
         </div>
         <div className="sidebar-footer">
