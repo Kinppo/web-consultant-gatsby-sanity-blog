@@ -45,7 +45,7 @@ const Container = styled.div`
     border-radius: 7px;
     box-sizing: border-box;
     padding: 0em 1em;
-    margin: 3em 0em;
+    margin: 6em 0em;
     p {
       padding: 1em 0em;
       font-weight: 600;
