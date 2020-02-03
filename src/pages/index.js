@@ -130,10 +130,6 @@ const IndexPage = ({ data }) => {
               <div
                 className="card"
                 key={node.slug.current}
-                data-sal="slide-up"
-                data-sal-duration="800"
-                data-sal-delay="300"
-                data-sal-easing="ease-in-out"
               >
                 <Img
                   fixed={node.mainImage.asset.fixed}
