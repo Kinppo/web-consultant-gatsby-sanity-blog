@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
-import Image from "gatsby-image";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 const Container = styled.div`
   box-sizing: border-box;
   padding: 0em 1em 2em 1em;
@@ -66,7 +66,7 @@ const Container = styled.div`
   }
   h4 {
     color: #0f7be9;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 1em;
   }
   .text {
@@ -151,10 +151,21 @@ const Container = styled.div`
     }
   }
 `;
-function Aside({ img }) {
+function Aside() {
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "men.jpg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   return (
     <Container>
-      <Image fluid={img} className="aside-img" />
+      <Img fluid={data.file.childImageSharp.fluid} className="aside-img" />
       <div className="testimony-text">
         <h4>John Doe</h4>
         <svg

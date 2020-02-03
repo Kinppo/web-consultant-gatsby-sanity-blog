@@ -144,7 +144,7 @@ const IndexPage = ({ data }) => {
               </div>
             ))}
           </div>
-          <Aside img={data.file.childImageSharp.fluid} />
+          <Aside />
         </div>
         <ImageSection />
       </Layout>
@@ -155,13 +155,6 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "men.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     allSanityPost(limit: 5) {
       edges {
         node {
