@@ -25,7 +25,7 @@ const Container = styled.div`
     margin-top: 10em;
     display: grid;
     grid-gap: 2%;
-    grid-template-columns: 70% 29%;
+    grid-template-columns: 69% 29%;
   }
   @media only screen and (max-width: 720px) {
     .row {
@@ -127,10 +127,7 @@ const IndexPage = ({ data }) => {
         <div className="row">
           <div className="cards">
             {data.allSanityPost.edges.map(({ node }) => (
-              <div
-                className="card"
-                key={node.slug.current}
-              >
+              <div className="card" key={node.slug.current}>
                 <Img
                   fixed={node.mainImage.asset.fixed}
                   alt="work screenshot"
@@ -147,7 +144,7 @@ const IndexPage = ({ data }) => {
               </div>
             ))}
           </div>
-          <Aside />
+          <Aside img={data.file.childImageSharp.fluid} />
         </div>
         <ImageSection />
       </Layout>
@@ -158,6 +155,13 @@ export default IndexPage;
 
 export const query = graphql`
   query {
+    file(relativePath: { eq: "men.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     allSanityPost(limit: 5) {
       edges {
         node {

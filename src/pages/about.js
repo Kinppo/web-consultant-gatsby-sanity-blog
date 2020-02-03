@@ -30,6 +30,10 @@ const Container = styled.div`
     margin-bottom: 2em;
     margin-top: 4em;
   }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
   .mh-about-tag {
     word-break: break-all;
     margin-bottom: 10px;
@@ -84,7 +88,7 @@ function About({ data }) {
                     that extends over 8 years in the web consulting filed. Also
                     I am good at Hello, I’m a John, web consultant based on New
                   </p>
-                  <div className="mh-about-tag">
+                  <ul className="mh-about-tag">
                     <li>
                       <span>php</span>
                     </li>
@@ -106,7 +110,7 @@ function About({ data }) {
                     <li>
                       <span>Javascript</span>
                     </li>
-                  </div>
+                  </ul>
                   <a
                     href=" "
                     className="btn-fill"

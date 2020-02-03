@@ -1,33 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import Image from "gatsby-image";
 const Container = styled.div`
   box-sizing: border-box;
   padding: 0em 1em 2em 1em;
   .aside-img {
     width: 100%;
-    height: 25vw;
+    height: 100%;
+    max-width: 360px;
     max-height: 400px;
     border-radius: 3px;
+    object-fit: cover;
   }
   .tags {
     word-break: break-all;
     padding: 0em 1.3em;
     text-align: center;
   }
-  .tags li {
-    margin: 0px 6px;
+  .tags a {
     border-radius: 4px;
     padding: 4px 0px;
     display: inline-block;
-    margin-bottom: 0.5em;
   }
-  .tags li span {
+  .tags p {
     border: 1px solid #621367;
     padding: 4px 10px;
     border-radius: 4px;
+    margin: 0.2em;
   }
-  .tags li span:hover {
+  .tags p:hover {
     background-color: transparent !important;
   }
   h5 {
@@ -59,11 +61,11 @@ const Container = styled.div`
     }
   }
   svg {
-    fill: #499df3;
+    fill: #1983f0;
     margin-bottom: 1em;
   }
   h4 {
-    color: #499df3;
+    color: #0f7be9;
     font-size: 18px;
     margin-top: 1em;
   }
@@ -149,10 +151,10 @@ const Container = styled.div`
     }
   }
 `;
-function Aside() {
+function Aside({ img }) {
   return (
     <Container>
-      <img src={require(`../images/men.jpg`)} alt="men" className="aside-img" />
+      <Image fluid={img} className="aside-img" />
       <div className="testimony-text">
         <h4>John Doe</h4>
         <svg
@@ -177,58 +179,44 @@ function Aside() {
       </div>
       <div className="categories">
         <h5>categories</h5>
-        <Link to="./education">
+        <Link to="/education">
           <p>Education</p>
         </Link>
-        <Link to="./sience">
+        <Link to="/sience">
           <p>Sience</p>
         </Link>
-        <Link to="./nature">
+        <Link to="/nature">
           <p>Nature</p>
         </Link>
-        <Link to="./personal-life">
+        <Link to="/personal-life">
           <p>Personal Life</p>
         </Link>
-        <Link to="./technology">
+        <Link to="/technology">
           <p>Technology</p>
         </Link>
       </div>
       <div className="tags">
         <h5>tags</h5>
-        <Link to="./php">
-          <li>
-            <span>php</span>
-          </li>
+        <Link to="/php">
+          <p>php</p>
         </Link>
-        <Link to="./python">
-          <li>
-            <span>Python</span>
-          </li>
+        <Link to="/python">
+          <p>Python</p>
         </Link>
-        <Link to="./swift">
-          <li>
-            <span>Swift</span>
-          </li>
+        <Link to="/swift">
+          <p>Swift</p>
         </Link>
-        <Link to="./java">
-          <li>
-            <span>Java</span>
-          </li>
+        <Link to="/java">
+          <p>Java</p>
         </Link>
-        <Link to="./wordpress">
-          <li>
-            <span>wordpress</span>
-          </li>
+        <Link to="/wordpress">
+          <p>wordpress</p>
         </Link>
-        <Link to="./android">
-          <li>
-            <span>Android</span>
-          </li>
+        <Link to="/android">
+          <p>Android</p>
         </Link>
-        <Link to="./javascript">
-          <li>
-            <span>Javascript</span>
-          </li>
+        <Link to="/javascript">
+          <p>Javascript</p>
         </Link>
       </div>
     </Container>
