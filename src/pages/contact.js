@@ -75,8 +75,6 @@ const Contact = () => {
         <form
           name="contact"
           method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
           className="single-form quate-form"
           onSubmit={handleSubmit}
           id="contactForm"

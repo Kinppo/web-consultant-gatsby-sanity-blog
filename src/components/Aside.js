@@ -65,8 +65,8 @@ const Container = styled.div`
     margin-bottom: 1em;
   }
   h4 {
-    color: #0f7be9;
-    font-size: 16px;
+    color: #0e73d8;
+    font-size: 18px;
     margin-top: 1em;
   }
   .text {
