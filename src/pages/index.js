@@ -38,6 +38,10 @@ const Container = styled.div`
     margin-left: 1em;
     width: calc(100% - 1em);
     box-sizing: border-box;
+    @media only screen and (max-width: 720px) {
+      margin-left: 0em;
+      width: calc(100%);
+    }
   }
   .card {
     border: none;
@@ -52,6 +56,9 @@ const Container = styled.div`
       padding: 0% 3%;
       display: inline-block;
       text-align: center;
+    }
+    @media only screen and (max-width: 400px) {
+      padding: 0%;
     }
   }
   .card:nth-child(even) > .card-img {
